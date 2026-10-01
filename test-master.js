@@ -4,8 +4,8 @@ describe("Be the Test Master", () => {
     let stringValue = "I am a string";
     let numberValue = 484;
 
-    assert.equal(stringValue, "???");
-    assert.equal(numberValue, "???");
+    assert.equal(stringValue, "I am a string");
+    assert.equal(numberValue, 484);
   });
 
   // Test #2
@@ -19,13 +19,13 @@ describe("Be the Test Master", () => {
 
     yay();
 
-    assert.equal(outside_the_function, "???");
+    assert.equal(outside_the_function, "can you see me?");
   });
 
   // Test #3
   it("Function parameters become scoped to the function", () => {
     function yay(param) {
-      assert.equal(param, "???");
+      assert.equal(param, "a fine kettle of fish");
     }
 
     yay("a fine kettle of fish");
@@ -34,8 +34,8 @@ describe("Be the Test Master", () => {
   // Test #4
   it("A functions local scope is not available in an outer scope.", () => {
     function yay() {
-      var kix = "kid tested mother approved";
-      assert.equal(kix, "???");
+      var kix = "A functions local scope is not available in an outer scope.";
+      assert.equal(kix, "A functions local scope is not available in an outer scope.");
     }
     yay();
 
@@ -49,7 +49,7 @@ describe("Be the Test Master", () => {
     } else {
       has_kix = "i prefer cheerios";
     }
-    assert.equal(has_kix, "???");
+    assert.equal(has_kix, "i prefer cheerios");
   });
 
   // Test #5
@@ -59,12 +59,12 @@ describe("Be the Test Master", () => {
     }
 
     function foo() {
-      var in_foo = "i'm in foo";
+      var in_foo = "in foo";
       if (this.from_yay !== undefined) {
         in_foo = this.from_yay;
       }
-      assert.equal(in_foo, "???");
-      assert.equal(this.from_yay, "???");
+      assert.equal(in_foo, "in foo");
+      assert.equal(this.from_yay, undefined);
     }
     yay();
     foo();
@@ -77,11 +77,11 @@ describe("Be the Test Master", () => {
     function yay() {
       var peanuts = "roasted";
 
-      assert.equal(peanuts, "???");
+      assert.equal(peanuts, "roasted");
     }
     yay();
 
-    assert.equal(peanuts, "???");
+    assert.equal(peanuts, "300");
   });
 
   // Test #7
@@ -95,11 +95,11 @@ describe("Be the Test Master", () => {
     }
 
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
   });
 
   // Test #8
@@ -110,7 +110,7 @@ describe("Be the Test Master", () => {
       return im_outside + im_inside;
     }
 
-    assert.equal(yay(), "???");
+    assert.equal(yay(), "alpha" + "omega");
   });
 
   // Test #9
@@ -121,9 +121,9 @@ describe("Be the Test Master", () => {
     }
 
     yay();
-    assert.equal(im_outside, "???");
+    assert.equal(im_outside, 14);
     yay();
-    assert.equal(im_outside, "???");
+    assert.equal(im_outside, 15);
   });
 
   // Test #10
@@ -136,11 +136,11 @@ describe("Be the Test Master", () => {
     }
 
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreggreg");
   });
 
   // Test #11
@@ -154,17 +154,17 @@ describe("Be the Test Master", () => {
       whatever();
     }
     something(yay);
-    assert.equal(im_outter, "???");
+    assert.equal(im_outter, 40);
   });
 
   // Test #12
   it("We can get crazy with returns.", () => {
     function yay() {
-      return " is dog";
+      return " is a dog";
     }
     function foo(whatever) {
       return "hello, this" + whatever();
     }
-    assert.equal(foo(yay), "???");
+    assert.equal(foo(yay), "hello, this is a dog");
   });
 });
